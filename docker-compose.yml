@@ -21,8 +21,6 @@ services:
     build: ./php
     container_name: cotisations_php
     restart: always
-    volumes:
-      - ./app:/var/www/html
     depends_on:
       db:
         condition: service_healthy
