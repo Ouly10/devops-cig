@@ -1,5 +1,4 @@
 services:
-
   db:
     image: mysql:8.0
     container_name: cotisations_db
@@ -31,21 +30,22 @@ services:
       - cotisations_network
 
   nginx:
-  build:
-    context: .
-    dockerfile: Dockerfile.nginx
-  container_name: cotisations_nginx
-  restart: always
-  ports:
-    - "8081:80"
-  volumes:
-    - ./app:/var/www/html
-  depends_on:
-    - php
-  networks:
-    - cotisations_network
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: cotisations_nginx
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - cotisations_network
 
-networks:   cotisations_network:
+networks:
+  cotisations_network:
     driver: bridge
 
 volumes:
