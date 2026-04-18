@@ -6,7 +6,7 @@ pipeline {
         stage('Cloner le repo') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/TIO-Moussa/devops-cig.git'
+                    url: 'https://github.com/Ouly10/devops-cig.git'
             }
         }
 
@@ -33,3 +33,4 @@ pipeline {
         }
     }
 }
+
