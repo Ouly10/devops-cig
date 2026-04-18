@@ -31,21 +31,21 @@ services:
       - cotisations_network
 
   nginx:
-    image: nginx:latest
-    container_name: cotisations_nginx
-    restart: always
-    ports:
-      - "8081:80"
-    volumes:
-      - ./app:/var/www/html
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - php
-    networks:
-      - cotisations_network
+  build:
+    context: .
+    dockerfile: Dockerfile.nginx
+  container_name: cotisations_nginx
+  restart: always
+  ports:
+    - "8081:80"
+  volumes:
+    - ./app:/var/www/html
+  depends_on:
+    - php
+  networks:
+    - cotisations_network
 
-networks:
-  cotisations_network:
+networks:   cotisations_network:
     driver: bridge
 
 volumes:
