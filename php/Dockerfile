@@ -1,3 +1,3 @@
 FROM php:8.1-fpm
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-COPY ../app/ /var/www/html/
+COPY /app/ /var/www/html/
